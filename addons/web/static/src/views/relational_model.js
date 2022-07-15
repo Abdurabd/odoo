@@ -1790,6 +1790,13 @@ export class DynamicRecordList extends DynamicList {
         this.count = 0;
     }
 
+    exportState() {
+        return {
+            ...super.exportState(),
+            offset: this.offset,
+        };
+    }
+
     async load(params = {}) {
         this.limit = params.limit === undefined ? this.limit : params.limit;
         this.offset = params.offset === undefined ? this.offset : params.offset;
